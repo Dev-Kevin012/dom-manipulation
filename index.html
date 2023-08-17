@@ -33,6 +33,7 @@
           <li class="list-group-item">Item 2</li>
           <li class="list-group-item">Item 3</li>
           <li class="list-group-item">Item 4</li>
+          <li class="new-item">Item 5</li>
         </ul>
       </div>
     </div>
@@ -50,6 +51,7 @@
       for (let i = 0; i < items.length; i++) {
         items[i].style.fontWeight = "bold";
       }
+      document.getElementsByTagName("li")[4].innerText = "New item";
     </script>
   </body>
 </html>
