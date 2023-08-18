@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="vw-100 vh-100 d-flex justify-content-center align-items-center">
+  <body class="flex align-items-center">
     <div class="container col-lg-6">
       <div class="card bg-light shadow-sm p-3 rounded">
         <div class="card-body">
@@ -64,6 +64,7 @@
         </div>
       </div>
     </div>
+    <div class="container" id="items"></div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -85,8 +86,16 @@
         Phone_Number: phone_number,
         Time: time,
       };
-      localStorage.setItem("Details", JSON.stringify(formData));
-      console.log(localStorage.getItem("Details"));
+      localStorage.setItem(email, JSON.stringify(formData));
+      displayItems(email);
+    };
+
+    const displayItems = (email) => {
+      const data = localStorage.getItem(email);
+      const item = document.createElement("div");
+      item.className = "card my-4 p-2";
+      item.textContent = data;
+      document.getElementById("items").appendChild(item);
     };
   </script>
 </html>
